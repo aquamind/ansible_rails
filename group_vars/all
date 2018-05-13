@@ -1,0 +1,6 @@
+---
+# file: group_vars/all
+ruby: {
+    version: "2.5.1",
+}
+rbenv_root: "/usr/local/rbenv"

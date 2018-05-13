@@ -1,0 +1,20 @@
+---
+# file: roles/common/tasks/main.yml
+
+- name: yum update
+  yum: name=* state=latest
+  become: yes
+
+- name: add bachrc alias
+  lineinfile: >
+    dest={{ ansible_env.HOME }}/.bashrc
+    state=present
+    insertafter='# User specific aliases and functions'
+    line="alias vi='vim'"
+
+- name: install vim
+  yum: name=vim state=latest
+  become: yes
+- name: install tmux
+  yum: name=tmux state=latest
+  become: yes

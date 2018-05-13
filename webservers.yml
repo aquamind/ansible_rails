@@ -1,0 +1,7 @@
+---
+# file: webservers.yml
+- hosts: localhost
+  roles:
+    - common
+    - nginx
+    - rails
