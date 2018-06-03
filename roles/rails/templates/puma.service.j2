@@ -1,0 +1,15 @@
+[Unit]
+Description=Puma Application Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/{{ app_name }}
+Environment=RAILS_ENV=development
+ExecStart={{ rbenv_root }}/shims/bundle exec puma -C /home/{{ app_name }}/config/puma.rb
+TimeoutSec=300
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
